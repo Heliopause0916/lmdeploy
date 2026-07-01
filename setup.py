@@ -151,6 +151,7 @@ if get_target_device() == 'cuda' and os.getenv('DISABLE_TURBOMIND', '').lower() 
                 '-DBUILD_PY_FFI=ON',
                 '-DBUILD_MULTI_GPU=' + ('OFF' if os.name == 'nt' else 'ON'),
                 '-DUSE_NVTX=' + ('OFF' if os.name == 'nt' else 'ON'),
+                f'-DCMAKE_CUDA_ARCHITECTURES={os.getenv("CMAKE_CUDA_ARCHITECTURES", "")}',
             ],
         ),
     ]
